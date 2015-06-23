@@ -1,13 +1,17 @@
 'use strict';
 
-angular.module('bookmarks', [
+angular.module('customerManager', [
   'ui.router',
-  'ui.bootstrap'
-]).config(function ($stateProvider, $urlRouterProvider) {
+  'ui.bootstrap',
+  'component.navbar',
+  'component.customer-list'
+]).config(function ($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider) {
+  $urlMatcherFactoryProvider.strictMode(false);
+
   $stateProvider
-    .state('main', {
+    .state('customers', {
       url: '/',
-      template: '<main/>'
+      template: '<customer-list/>'
     })
   ;
   $urlRouterProvider.otherwise('/');
