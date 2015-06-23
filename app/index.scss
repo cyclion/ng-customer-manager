@@ -1,0 +1,27 @@
+
+body {
+  background: url("assets/img/bg.png");
+  font-size: 16px;
+}
+
+.divider-hor {
+  height: 15px;
+}
+
+.form-control, .input-group-addon, .btn {
+  border-radius: 0;
+}
+
+.has-error {
+  color: red;
+  font-size: 85%;
+}
+form span.red {
+  color: rgba(208, 0, 85, 0.67);
+}
+
+//@import "components/edit/edit";
+/* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+   all your sass files automatically */
+// injector
+// endinjector
