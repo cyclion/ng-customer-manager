@@ -9,8 +9,10 @@ module.exports = function (config) {
         files: [
             'bower_components/underscore/underscore.js',
             'bower_components/angular/angular.js',
+            'bower_components/angular-ui-router/release/angular-ui-router.js',
             'bower_components/angular-foundation-bower/mm-foundation-tpls.js',
             'bower_components/angular-resource/angular-resource.js',
+            'bower_components/angular-bootstrap/ui-bootstrap.js',
             'bower_components/angular-sanitize/angular-sanitize.js',
             'bower_components/angular-animate/angular-animate.js',
             'bower_components/angular-touch/angular-touch.js',
@@ -18,7 +20,6 @@ module.exports = function (config) {
             'bower_components/ngstorage/ngStorage.js',
             'bower_components/angular-mocks/angular-mocks.js',
             'resources/directive-builder.js',
-            'app/**/_*.js',
             'app/**/*.html',
             'app/**/*.js',
             'app/*.js'
