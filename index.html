@@ -1,0 +1,45 @@
+<!DOCTYPE html >
+<html ng-app="customerManager">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Customer manager</title>
+  <meta name="description" content="Customer manager allows you to view, edit and analyze all your orders from customers">
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="shorcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <!-- build:css css/test-application.css -->
+  <!-- inject:css --><link rel="stylesheet" href="app/index.css"><link rel="stylesheet" href="app/vendor.css"><!-- endinject -->
+  <!-- endbuild -->
+
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container">
+  <navbar></navbar>
+  <div ui-view></div>
+</div>
+
+<!-- process:remove -->
+<script src="http://localhost:35129/livereload.js?snipver=1"></script>
+
+<script src="js/angular.min.js"></script>
+<script src="js/angular-resource.min.js"></script>
+<script src="js/ui-bootstrap.min.js"></script>
+<script src="js/ui-bootstrap-tpls.min.js"></script>
+<script src="js/angular-ui-router.min.js"></script>
+<script src="js/angular-local-storage.min.js"></script>
+
+
+<!-- build:js js/test-application.js -->
+<!-- inject:js --><script src="app/app.js"></script><script src="app/services/guid-module.js"></script><script src="app/services/mongolab-factory.js"></script><script src="app/components/customer-form/customer-form.js"></script><script src="app/components/customer-list/customer-list.js"></script><script src="app/components/customer-orders-list/customer-orders-list.js"></script><script src="app/components/navbar/navbar.js"></script><script src="app/components/customer-orders-page/customer-orders-page.js"></script><script src="app/components/order-list/order-list.js"></script><script src="app/components/order-form/order-form.js"></script><!-- endinject -->
+<!-- inject:.tmp/templates-and-app-version:js --><!-- endinject -->
+<!-- endbuild -->
+
+</body>
+</html>

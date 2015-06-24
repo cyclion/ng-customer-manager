@@ -1,0 +1,22 @@
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a  ui-sref="customers">
+
+      </a>
+      <a class="navbar-brand" ui-sref="customers">
+        <span class="navbar-brand-img">
+          <img alt="CM" src="app/components/navbar/img/customer-manager.png">
+        </span>
+        <span>Customer Manager</span>
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li ng-class="{'active': viewName=='customers'}"><a ui-sref="customers">Customers</a></li>
+        <li ng-class="{'active': viewName=='orders'}"><a ui-sref="orders">Orders</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

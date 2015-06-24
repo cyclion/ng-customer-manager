@@ -1,0 +1,57 @@
+body {
+  background: url("assets/img/bg.png");
+  font-size: 14px; }
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0; }
+
+.divider-hor-sm {
+  height: 10px; }
+
+.divider-hor {
+  height: 15px; }
+
+.divider-hor-lg {
+  height: 20px; }
+
+.form-control, .input-group-addon, .btn, .panel {
+  border-radius: 0; }
+
+.row.has-error {
+  color: red;
+  font-size: 85%; }
+
+form span.red {
+  color: rgba(208, 0, 85, 0.67); }
+
+body {
+  padding-top: 50px; }
+
+.navbar-brand-img img {
+  height: 30px;
+  width: 30px;
+  margin-top: -10px; }
+
+.tile .panel {
+  box-shadow: 3px 3px 5px black;
+  margin-bottom: 15px;
+  position: relative; }
+  .tile .panel .panel-heading {
+    min-height: 115px; }
+.tile .panel .btn-remove {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px; }
+.tile .panel:hover .btn-remove {
+  display: block; }
+
+.tile.col-md-3 {
+  padding-left: 5px;
+  padding-right: 5px; }
+
+/* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+   all your sass files automatically */
