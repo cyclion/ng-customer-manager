@@ -1,0 +1,47 @@
+<h2>All Customer Orders</h2>
+<div class="row">
+  <div class="col-md-5">
+    Sort customers by
+    <div class="btn-group btn-group-sm">
+      <label class="btn btn-default" ng-model="customersSortExpression" btn-radio="['firstName', 'lastName']">name</label>
+      <label class="btn btn-default" ng-model="customersSortExpression" btn-radio="customersOrdersCountSorter">orders count</label>
+      <label class="btn btn-default" ng-model="customersSortExpression" btn-radio="customersTotalSorter">total</label>
+    </div>
+
+    <div class="btn-group btn-group-sm">
+      <label class="btn btn-default" ng-model="customersSortReverse" btn-radio="false">
+        ASC
+      </label>
+      <label class="btn btn-default" ng-model="customersSortReverse" btn-radio="true">
+        DESC
+      </label>
+    </div>
+  </div>
+  <div class="col-md-4">
+    Sort orders by
+    <div class="btn-group btn-group-sm">
+      <label class="btn btn-default" ng-model="ordersSortExpression" btn-radio="'product'">product</label>
+      <label class="btn btn-default" ng-model="ordersSortExpression" btn-radio="ordersTotalSorter">total</label>
+    </div>
+
+    <div class="btn-group btn-group-sm">
+      <label class="btn btn-default" ng-model="ordersSortReverse" btn-radio="false">
+        ASC
+      </label>
+      <label class="btn btn-default" ng-model="ordersSortReverse" btn-radio="true">
+        DESC
+      </label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <a ui-sref="addOrder" class="btn btn-success btn-sm">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add new order
+    </a>
+  </div>
+</div>
+<div ng-repeat="customer in customers | orderBy : customersSortExpression : customersSortReverse"
+     ng-show="customer.orders.length" class="customer-with-orders">
+  <h3>{{customer.firstName}} {{customer.lastName}}</h3>
+  <customer-orders-list customer="customer" sort-expression="ordersSortExpression" sort-reverse="ordersSortReverse"
+                        ng-show="customer.orders.length" back-state="viewName"></customer-orders-list>
+</div>

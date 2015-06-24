@@ -17,10 +17,10 @@ function compileSass(src, dest) {
     return gulp.src(src)
         //.pipe(sourcemaps.init())
         .pipe(sass())
-        .pipe(autoprefixer({
+        /*.pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
-        }))
+        }))*/
         //.pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest(dest));
 }
@@ -199,12 +199,13 @@ gulp.task('default', function () {
                 logEvent(event);
                 gulp.src(event.path).pipe(livereload());
             });
-            gulp.watch('app/**/*.scss', function (event) {
+            gulp.watch(['app/**/*.scss'], function (event) {
                 var path = event.path;
                 logEvent(event);
                 if (event.type !== 'deleted') {
                     var folder = path.slice(0, path.lastIndexOf(/[\/\\]/.exec(path)[0]));
-                    return compileSass(path, folder).pipe(livereload());
+                    //return compileSass(path, folder).pipe(livereload());
+                    return compileSass('app/*.scss', 'app').pipe(livereload());
                 } else {
                     path = path.replace('.scss', '.css');
                     return gulp.src(path).pipe(clean());

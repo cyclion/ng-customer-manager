@@ -1,18 +1,31 @@
 
 body {
   background: url("assets/img/bg.png");
-  font-size: 16px;
+  font-size: 14px;
 }
 
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.divider-hor-sm {
+  height: 10px;
+}
 .divider-hor {
   height: 15px;
 }
+.divider-hor-lg {
+  height: 20px;
+}
 
-.form-control, .input-group-addon, .btn {
+.form-control, .input-group-addon, .btn, .panel {
   border-radius: 0;
 }
 
-.has-error {
+.row.has-error {
   color: red;
   font-size: 85%;
 }
@@ -21,6 +34,7 @@ form span.red {
 }
 
 @import "components/navbar/navbar";
+@import "components/customer-list/customer-list";
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
    all your sass files automatically */
 // injector

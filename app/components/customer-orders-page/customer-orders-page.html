@@ -1,0 +1,29 @@
+<h3>Orders for {{customer.firstName}} {{customer.lastName}}</h3>
+<p>{{customer.address}}</p>
+<p>{{customer.city}}</p>
+<div class="row">
+  <div class="col-md-5 col-md-offset-3" ng-show="customer.orders.length">
+    Sort by
+    <div class="btn-group btn-group-sm">
+      <label class="btn btn-default" ng-model="sortExpression" btn-radio="'product'">product</label>
+      <label class="btn btn-default" ng-model="sortExpression" btn-radio="totalSorter">total</label>
+    </div>
+
+    <div class="btn-group btn-group-sm">
+      <label class="btn btn-default" ng-model="sortReverse" btn-radio="false">
+        ASC
+      </label>
+      <label class="btn btn-default" ng-model="sortReverse" btn-radio="true">
+        DESC
+      </label>
+    </div>
+  </div>
+  <div ng-class="{'col-md-offset-1': customer.orders.length, 'col-md-offset-9': !customer.orders.length}" class="col-md-3">
+    <a ui-sref="addOrderCustomer({customerId: customer._id.$oid})" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add new order
+    </a>
+  </div>
+</div>
+<customer-orders-list customer="customer" sort-expression="sortExpression" sort-reverse="sortReverse"
+                      ng-show="customer.orders.length" back-state="viewName"></customer-orders-list>
+<h3 class="text-center" ng-hide="customer.orders.length" >No orders</h3>

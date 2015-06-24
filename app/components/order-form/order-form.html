@@ -1,0 +1,39 @@
+<h2>Edit order</h2>
+<form name="orderForm">
+  <div class="row">
+    <div class="form-group col-md-3" ng-class="{'has-error': !orderForm.customerId.$valid}">
+      <label for="customerId" class="control-label">Customer</label>
+      <select name="customerId" ng-model="customerId"
+              ng-options="customer._id.$oid as customer.firstName + ' ' + customer.lastName for customer in customers"
+              class="form-control" id="customerId" required ng-disabled="currentStateName === 'editOrder'"></select>
+    </div>
+    <div class="form-group col-md-3" ng-class="{'has-error': !orderForm.product.$valid}">
+      <label for="product" class="control-label">Product</label>
+      <input name="product" ng-model="order.product" class="form-control" id="product" placeholder="Product" required>
+    </div>
+    <div class="form-group col-md-3" ng-class="{'has-error': !orderForm.quantity.$valid}">
+      <label for="quantity" class="control-label">Quantity</label>
+      <input name="quantity" type="number" min="1" ng-model="order.quantity" class="form-control" id="quantity"
+             placeholder="Quantity" required>
+    </div>
+    <div class="form-group col-md-3" ng-class="{'has-error': !orderForm.unitPrice.$valid}">
+      <label for="unitPrice" class="control-label">Unit Price</label>
+      <div class="input-group">
+        <div class="input-group-addon">$</div>
+        <input name="unitPrice" min="0" pattern="\d+(\.\d{1,2})?" ng-model="order.unitPrice" class="form-control"
+               id="unitPrice" placeholder="Unit Price" required>
+      </div>
+    </div>
+  </div>
+  <div class="row col-md-12">
+    <button class="btn btn-success" ng-click="addOrder()"
+            ng-hide="currentStateName === 'editOrder'" ng-disabled="!orderForm.$valid">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+    </button>
+    <button class="btn btn-success" ng-click="updateOrder()"
+            ng-show="currentStateName === 'editOrder'" ng-disabled="!orderForm.$valid">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save
+    </button>
+    <a class="btn btn-default" ng-click="cancel()">Cancel</a>
+  </div>
+</form>

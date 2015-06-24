@@ -1,0 +1,22 @@
+.tile {
+  .panel {
+    box-shadow: 3px 3px 5px black;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  .panel .btn-remove {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  .panel:hover .btn-remove {
+    display: block;
+  }
+}
+
+.tile.col-md-3 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
