@@ -54,3 +54,4 @@ describe('navbar', function () {
     expect(value).toBe(4.38);
   });
 });
+

@@ -43,6 +43,7 @@ function initPrivateTasks() {
             '!app/vendor/**/*.css',
             '!app/vendor/**/*.js',
             '!app/**/*spec.js',
+            '!app/**/*spec.e2e.js',
             '!app/**/*test-data.js'
         ], {read: false}), {
             relative: true
@@ -195,7 +196,12 @@ gulp.task('default', function () {
     (function (livereload) {
         gulp.task('watch', function () {
             livereload.listen({port: commander.lrport});
-            gulp.watch(['app/**/*.js', 'app/**/*.html', 'index.html'], function (event) {
+            gulp.watch([
+              'app/**/*.js',
+              '!app/**/*spec.js',
+              '!app/**/*spec.e2e.js',
+              'app/**/*.html',
+              'index.html'], function (event) {
                 logEvent(event);
                 gulp.src(event.path).pipe(livereload());
             });
@@ -276,3 +282,12 @@ gulp.task('test', function (done) {
 });
 
 gulp.task('dev-test', runKarma);
+
+gulp.task('e2e-test', function(){
+  runSequence('default', function() {
+    require('karma').server.start({
+      configFile: __dirname + '/resources/karma-e2e.conf.js',
+      autoWatch: true
+    });
+  })
+});

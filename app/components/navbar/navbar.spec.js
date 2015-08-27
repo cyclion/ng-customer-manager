@@ -1,14 +1,18 @@
 'use strict';
 
 describe('navbar', function () {
+  console.log('navbar');
   beforeEach(module('templates'));
   beforeEach(module('ui.router'));
   beforeEach(module('component.navbar'));
 
   it('element should get compiled', inject(function (directiveBuilder) {
+    console.log('element should get compiled');
     var directive = directiveBuilder.build('<navbar></navbar>');
     directive.scope.$digest();
-    expect(directive.element.html()).toBeDefined();
+    var html = directive.element.html();
+    console.log('html', html);
+    expect(html).toBeDefined();
   }));
 
   it('Customers menu item must be active', inject(function (directiveBuilder, $state) {

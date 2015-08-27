@@ -16,7 +16,11 @@ angular.module('customerManager', [
     collection: 'customers',
     apiKey: 'dn-hNjuX1bXbXhTWDbpXperdbFi7YiU1'
   });
-}).config(function ($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider) {
+}).config(function($locationProvider){
+  // use the HTML5 History API
+  //$locationProvider.html5Mode(true);
+})
+  .config(function ($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider) {
   $urlMatcherFactoryProvider.strictMode(false);
 
   $stateProvider
